@@ -2,7 +2,7 @@
 
 适用于 **Lenovo Legion 5 Pro（2025，Arrow Lake-HX）** 的 OpenCore EFI 配置（已脱敏三码，可直接用于 U 盘引导或同步至内置硬盘 EFI 分区）。
 
-> 本仓库内置的 `LegionECMode.kext` 源码与配套桌面控制端 `LegionZone.app`（免密切换整机 EC 模式 + 24 竖条 RGB 键盘控制）已在独立开源仓库维护：
+> 本仓库内置的 `LegionECMode.kext` 独立源码与预编译版本维护在：
 > 👉 **[KSLengYu/LegionECMode-kext](https://github.com/KSLengYu/LegionECMode-kext)**
 
 ---
@@ -15,7 +15,7 @@
 | GPU | NVIDIA GeForce RTX 5070 Laptop (`10de:2d58`) | 配合系统 `/Library/Extensions/NVRM*.kext` (`NVRM`/`NVRMFB`/`NVRMAGDC` 3.0) 硬件加速、高刷与外接显示正常 |
 | 内建屏幕 | `2560x1600 @ 165Hz` (eDP, HiDPI) | 亮度调节与休眠唤醒正常 |
 | 睡眠（S3） | `SSDT-GPRW.aml` + `SSDT-FIXSHUTDOWN.aml` | 已修复 XHCI/TXHC/RP09/RP17 等导致的睡眠秒醒问题 |
-| 键盘与整机模式 | ITE `048D:C195` + `_SB.GZFD.WMAA` | 已集成自研 `LegionECMode.kext`，搭配 [LegionZone.app](https://github.com/KSLengYu/LegionECMode-kext) 可免密实时切换安静/均衡/狂暴模式并控制 24 竖条 RGB 键盘 |
+| 整机 EC 模式 | `_SB.GZFD.WMAA` | 已集成自研 `LegionECMode.kext`，终端免密执行 `sysctl -w debug.legionec.mode=1/2/3` 即可切换安静/均衡/狂暴模式 |
 
 > 注：NVIDIA Blackwell (`NVRM` / `NVRMFB` / `NVRMAGDC`) 闭源驱动需安装到 macOS 系统 `/Library/Extensions/` 目录，不包含在本 EFI 仓库内。
 
@@ -45,7 +45,7 @@
 2. **CPU 完整型号名称**
    - `RestrictEvents.kext` + `boot-args` 中 `revpatch=sbvmm,cpuname`（配合 `NVRAM -> Delete` 清理旧值），系统可完整识别 `Intel(R) Core(TM) Ultra 7 255HX`。
 3. **免密 EC 功耗模式驱动集成**
-   - `EFI/OC/Kexts/LegionECMode.kext`：在内核中暴露 `debug.legionec.mode` 接口直接读写 `_SB.GZFD.WMAA`，搭配 [LegionECMode-kext 仓库](https://github.com/KSLengYu/LegionECMode-kext) 里的 `LegionZone.app` 使用即可。
+   - `EFI/OC/Kexts/LegionECMode.kext`：在内核中暴露 `debug.legionec.mode` 接口直接读写 `_SB.GZFD.WMAA`，详见 [LegionECMode-kext 仓库](https://github.com/KSLengYu/LegionECMode-kext)。
 
 ---
 
