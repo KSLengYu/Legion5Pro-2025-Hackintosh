@@ -46,7 +46,7 @@
 
 ### 参考与致谢
 
-用到了 Acidanthera（OpenCore、Lilu、VirtualSMC、RestrictEvents、VoodooI2C 等）、NullMoth（1401 工具与 NVRM 驱动）以及黑苹果社区的相关工具和资料。修改 EFI 前记得留好可引导的备份 U 盘。
+用到了 Acidanthera（OpenCore、Lilu、VirtualSMC、RestrictEvents、VoodooI2C 等）、NullMoth（1401 工具与 NVRM 驱动）、[watchthelight-labs](https://github.com/watchthelight-labs)（MT7925 无线/蓝牙驱动 `WTLWireless` 及 `LegionCpuPower`、`LegionBtFix`、`LegionI2CArrowLake`、`LegionITEKbdFix`、`LegionCbmrFix` 等联想适配驱动）以及黑苹果社区的相关工具和资料。上述驱动分别基于 ISC、BSD-3-Clause 与 GPL-2.0 协议开源，二次分发时请保留其原版权与许可证声明。修改 EFI 前记得留好可引导的备份 U 盘。
 
 ---
 
@@ -92,4 +92,4 @@ Test from a FAT32 USB drive first before syncing to the internal EFI partition.
 
 ### Credits
 
-Built with OpenCore and kexts from Acidanthera (Lilu, VirtualSMC, RestrictEvents, VoodooI2C, etc.), NullMoth (1401 tool and NVRM driver), and the Hackintosh community. Keep a working bootable USB backup before modifying your EFI.
+Built with OpenCore and kexts from Acidanthera (Lilu, VirtualSMC, RestrictEvents, VoodooI2C, etc.), NullMoth (1401 tool and NVRM driver), MT7925 Wi-Fi and Bluetooth (`WTLWireless`) and the Legion kexts (`LegionCpuPower`, `LegionBtFix`, `LegionI2CArrowLake`, `LegionITEKbdFix`, `LegionCbmrFix`) by [watchthelight-labs](https://github.com/watchthelight-labs) (ISC / BSD-3-Clause / GPL-2.0), and the Hackintosh community. Keep a working bootable USB backup before modifying your EFI.
